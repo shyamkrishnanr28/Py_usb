@@ -38,4 +38,4 @@ assert ep_out is not None
 assert ep_in is not None
 
 # write the data
-ep_out.write('test')
+ep_out.write('test1')
