@@ -1,3 +1,4 @@
+""" This test initiates EP1 OUT transfer, then prints the tx data length """
 import usb.core
 import usb.util
 

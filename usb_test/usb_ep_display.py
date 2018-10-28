@@ -1,3 +1,5 @@
+""" This test prints the first EP IN & OUT details """
+
 import usb.core
 import usb.util
 
