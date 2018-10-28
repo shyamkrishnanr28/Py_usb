@@ -27,4 +27,5 @@ ep_out = usb.util.find_descriptor(
 assert ep_out is not None
 
 # write the data
-ep_out.write('test1')
+tx_length = ep_out.write("Test data tx")
+print "tx_length is", tx_length
