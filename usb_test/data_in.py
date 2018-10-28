@@ -26,5 +26,10 @@ ep_in = usb.util.find_descriptor(
 
 assert ep_in is not None
 
-# write the data
-# TBD
+print "\n", ep_in, "\n"
+
+# Read the data
+read_data = ep_in.read(512, 5000)
+# read_data = dev.read(0x81, 512, 100)
+
+print read_data
