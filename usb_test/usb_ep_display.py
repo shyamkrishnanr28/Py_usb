@@ -23,7 +23,7 @@ ep_out = usb.util.find_descriptor(
     lambda e: \
         usb.util.endpoint_direction(e.bEndpointAddress) == \
         usb.util.ENDPOINT_OUT)
-		
+
 ep_in = usb.util.find_descriptor(
     intf,
     # match the first IN endpoint
@@ -31,11 +31,8 @@ ep_in = usb.util.find_descriptor(
     lambda e: \
         usb.util.endpoint_direction(e.bEndpointAddress) == \
         usb.util.ENDPOINT_IN)
-		
+
 print "\n", ep_in, "\n\n", ep_out
 
 assert ep_out is not None
 assert ep_in is not None
-
-# write the data
-ep_out.write('test1')
