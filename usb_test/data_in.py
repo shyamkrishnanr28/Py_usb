@@ -16,15 +16,15 @@ dev.set_configuration()
 cfg = dev.get_active_configuration()
 intf = cfg[(0,0)]
 
-ep_out = usb.util.find_descriptor(
+ep_in = usb.util.find_descriptor(
     intf,
-    # match the first OUT endpoint
+    # match the first IN endpoint
     custom_match = \
     lambda e: \
         usb.util.endpoint_direction(e.bEndpointAddress) == \
-        usb.util.ENDPOINT_OUT)
+        usb.util.ENDPOINT_IN)
 
-assert ep_out is not None
+assert ep_in is not None
 
 # write the data
-ep_out.write('test1')
+# TBD
