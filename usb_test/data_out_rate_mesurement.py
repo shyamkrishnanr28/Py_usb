@@ -4,6 +4,9 @@ import usb.util
 import time
 import math
 
+# Tx Data length in bytes
+TX_DATA_LENGTH = 512
+
 # find our device
 dev = usb.core.find(idVendor=0x04b4, idProduct=0x00f1)
 
@@ -36,7 +39,7 @@ time1 = time.time()
 time2 = 0
 tx_data = []
 
-for x in range(512):
+for x in range(TX_DATA_LENGTH):
     # Appended value shall be <= 0xff
     tx_data.append(0xAA)
 
@@ -46,8 +49,7 @@ while True:
     cnt = cnt + 1
 
     time2 = time.time()
-
     if time2 > (time1 + 1):
         time1 = time2
-        print float((cnt * 512)/1000), "KBPS"
+        print float((cnt * TX_DATA_LENGTH)/1000), "KBPS"
         cnt = 0

@@ -3,6 +3,9 @@ import usb.util
 import time
 import math
 
+# Rx Data length in bytes, should be a multiple of 512
+RX_DATA_LENGTH = 512 * 2
+
 # find our device
 dev = usb.core.find(idVendor=0x04b4, idProduct=0x00f1)
 
@@ -36,12 +39,12 @@ time2 = 0
 
 # Read the data
 while True:
-    read_data = ep_in.read(512, 5000)
+    # Discard the rx data
+    ep_in.read(RX_DATA_LENGTH, 5000)
     cnt = cnt + 1
 
     time2 = time.time()
-
     if time2 > (time1 + 1):
         time1 = time2
-        print float((cnt * 512)/1000), "KBPS"
+        print float((cnt * RX_DATA_LENGTH)/1000), "KBPS"
         cnt = 0
