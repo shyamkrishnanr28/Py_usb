@@ -5,7 +5,7 @@ import time
 import math
 
 # Tx Data length in bytes
-TX_DATA_LENGTH = 512
+TX_DATA_LENGTH = 512 * 1
 
 # find our device
 dev = usb.core.find(idVendor=0x04b4, idProduct=0x00f1)

@@ -4,7 +4,8 @@ import time
 import math
 
 # Rx Data length in bytes, should be a multiple of 512
-RX_DATA_LENGTH = 512 * 2
+# RX_DATA_LENGTH = 512 * 32 # For USB 3.0
+RX_DATA_LENGTH = 512 * 2 # For USB 2.0
 
 # find our device
 dev = usb.core.find(idVendor=0x04b4, idProduct=0x00f1)
