@@ -5,7 +5,7 @@ N = 600
 T = 1.0 / 800.0
 
 x = np.linspace(0.0, N*T, N)
-# Signal @ 50 Hz
+# Signal @ 50 Hz & 100 Hz
 y = np.sin(50.0 * 2.0*np.pi*x) + np.sin(100.0 * 2.0*np.pi*x)
 
 yf = fft(y)
