@@ -1,16 +1,13 @@
 import sched, time
 
 s = sched.scheduler(time.time, time.sleep)
-t = 0
+t = time.time()
 
-def print_time(a='1'):
+def timed_event(a='1'):
     global t
     print(time.time() - t)
-    s.enter(4, 2, print_time, argument=('10',))
+    s.enter(2, 2, timed_event, argument=('10',))
     t = time.time()
 	
-def print_some_times():
-    s.enter(4, 2, print_time, argument=('0',))
-    s.run()
-	
-print_some_times()
+s.enter(2, 2, timed_event, argument=('0',))
+s.run()
