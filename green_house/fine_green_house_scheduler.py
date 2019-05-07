@@ -48,6 +48,12 @@ def pump_off(a='0'):
 
 """ Read watering_log.txt and decide when to shcedule next pump_on()
     This is needed to handle auto script restarting feature 
+
+try:
+    file = open("watering_log.txt", "r")
+    print file.readline()
+except:
+    print "No Config"
 """
 
 # GPIO init
