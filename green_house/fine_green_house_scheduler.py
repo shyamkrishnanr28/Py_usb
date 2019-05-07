@@ -13,7 +13,6 @@ SchedCnt=0
 
 # =========================== pump_on ==================================
 def pump_on(a='0'):
-
     # Turn on pump
     led.off()
     global SchedCnt
@@ -52,6 +51,7 @@ except:
 # GPIO init
 led = LED(3)
 
+# Sched init
 s = sched.scheduler(time.time, time.sleep)
 s.enter(PUMP_ON_INTERVAL, 1, pump_on, argument=('0'))
 s.run()
